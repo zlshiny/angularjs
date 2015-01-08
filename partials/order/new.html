@@ -1,0 +1,234 @@
+<h2 class="info_title">{{ tour.tour_name }}</h2>
+<div class="order_info">
+  <div class="first_row">
+    <div class="left">价格：</div>
+    <div class="right">
+      <div class="fit">
+      {{ tour.tour_price }}元
+      </div>
+    </div>
+  </div>
+  <div class="sec_row">
+    <div class="left">人数：</div>
+    <div class="right">
+      <div class="fit vertical_middle">
+        <!-- <img class="mem_minus" src="/images/wap/minus_icon@2x.png"> -->
+        <div class="mem_count">1 人</div>
+        <!-- <div class="mem_add"></div> -->
+        <!-- <img class="mem_add" src="/images/wap/add_icon@2x.png"> -->
+      </div>
+    </div>
+  </div>
+  <div class="sec_row">
+    <div class="left">账户余额：</div>
+    <div class="right">
+      <div class="fit vertical_middle">
+      {{user.user_balance}}元
+      </div>
+    </div>
+  </div>
+
+  <div class="sec_row">
+    <div class="left">还需支付：</div>
+    <div class="right">
+      <div class="fit vertical_middle">
+      {{order.order_to_pay}}元
+      </div>
+    </div>
+  </div>
+
+</div>
+<form name="updateProfileForm" ng-submit="submit()">
+	<h2 class="info_title" style="float:left;">联系人信息</h2>
+  <a ng-click="modify_join_info()" style="margin-top: 21px;margin-right: 20px;float:right;">修改</a>
+  <div style="clear:both;"></div>
+	<div class="linkman">
+	  <div class="first_row">
+	    <div class="left">姓名：</div>
+	    <div class="right">
+        {{user.user_realname}}
+	    </div>
+	  </div>
+	  <div class="sec_row">
+	    <div class="left">性别：</div>
+	    <div class="right">
+        {{user.user_realgender | gender}}
+	      <div style="clear:both"></div>
+	    </div>
+	  </div>
+    <div class="sec_row">
+      <div class="left">联系手机：</div>
+      <div class="right">
+        {{user.user_realmobile}}
+      </div>
+    </div>
+    <div class="sec_row">
+      <div class="left">证件类型：</div>
+      <div class="right">
+        {{user.user_id_type | id_type}}
+      </div>
+    </div>
+    <div class="sec_row">
+      <div class="left">证件号：</div>
+      <div class="right">
+        {{user.user_idnum}}
+      </div>
+    </div>
+	</div>
+	<div class="bottom_button_container">
+	  <!-- <button class="weixin_group btn vertical_middle">群聊</button>   -->
+	  <button {{ order.order_can_pay ? '' : 'disabled="disabled"' }} class="tour_join btn vertical_middle {{ order.order_can_pay ? '' : 'btn-disable' }} ?>" type="submit">提交订单</button>
+
+	  <!-- todo 判断如果不是微信则alert弹出提示框 -->
+	  <button type="button" linkable href="tel:010-56138617" class="tour_consult btn vertical_middle">咨询</button>
+	</div>
+</form>
+<style type="text/css" media="all">
+.right_input .idcard {
+  font-size: 0.8em;
+}
+.fit {
+  float: right;
+  line-height: 40px;
+  margin: 0 8px 0 auto;
+}
+.female, .male {
+  float: left;
+  line-height: 40px;
+  margin-top: 10px;
+}
+.select_radio {
+  width: 20px;
+  float: left;
+}
+.select_value {
+  float: left;
+  line-height: 20px;
+}
+.select_value {
+  margin-right: 32px;
+  margin-left: 8px;
+}
+.right_input {
+  font-size: 14px;
+  border: 1px solid #C8C8C8;
+  width: 90%;
+  height: 26px;
+  padding: 0px;
+  line-height: 14px;
+  padding: 5px;
+}
+.linkman {
+  border: 1px solid #C8C8C8;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background: #F9F9F9;
+  margin-bottom: 20px;
+}
+.linkman .first_row {
+  padding-top: 15px;
+}
+.linkman .sec_row {
+  padding-top: 15px;
+}
+.linkman .left {
+  text-align: right;
+  width: 30%;
+  line-height: 40px;
+  height: 40px;
+}
+.linkman .right {
+  height: 40px;
+  line-height: 40px;
+
+}
+.linkman .first_row, .linkman .sec_row {
+  border: 0px;
+}
+.linkman .right {
+  width: 70%;
+  text-align: left;
+}
+.info_title {
+  margin-left: 20px;
+  margin-top: 21px;
+  margin-bottom: 7px;
+}
+.order_info {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.left {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #4C4C4C;
+}
+.right {
+  float: right;
+  width: 50%;
+  height: 40px;
+  text-align: center;
+}
+.sec_row .right span {
+
+}
+.first_row {
+  border: 1px solid #C8C8C8;
+  height: 20px;
+  background: #F9F9F9;
+  padding-left: 10px;
+  height: 40px;
+}
+.sec_row {
+  border: 1px solid #C8C8C8;
+  border-top: 0px;
+  height: 40px;
+  padding-left: 10px;
+  background: #F9F9F9;
+}
+.first_row .right {
+  color: #F49231;
+
+  font-size: 18px;
+  line-height: 40px;
+}
+.sec_row .right {
+}
+.mem_count {
+  float: left;
+  line-height: 30px;
+  padding: 0px 15px;
+  font-size: 18px;
+}
+.mem_add, .mem_minus {
+  width: 20px;
+  display: block;
+  float: left;
+}
+.mem_minus {
+  margin-top: 15px;
+}
+.mem_add {
+  margin-top: 6px;
+}
+.tour_price {
+  color: #FD6B07;
+  font-size: 16px;
+  float: left;
+  margin-left: 20px;
+}
+.content_container .weixin_group {
+  font-size: 14px;
+  float: left;
+  margin-left: 20px;
+}
+.tour_join, .tour_consult {
+  font-size: 14px;
+  float: right;
+  margin-right: 16px;
+}
+</style>

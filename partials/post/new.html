@@ -1,0 +1,82 @@
+
+<div class="new_post_container">
+  <form name="newPostForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <textarea ng-model="post.content" class="new_post_textarea" placeholder="这一刻的心情"></textarea>
+      </div>
+      <div class="form_line">
+        <img ng-click="send_images_click()" class="new_post_tap_img" ng-src="{{image_icon}}">
+        <img ng-click="send_face_click()" class="new_post_tap_img" ng-src="{{face_icon}}">
+        <button class="post_submit_button btn">提交</button>  
+        <button class="post_cancel_button btn btn-disable" type="button" ng-click="cancel()">取消</button>  
+      </div>
+      <div class="form_line" ng-show="!send_face">
+        <div class="uploaded_image" ng-repeat="image in post.images">
+          <img ng-src="{{image.url}}" />
+        </div>
+        <div class="upload-button" onclick="this.value = null" title="select file" data-multiple="true" ng-file-select="onFileSelect($files)">
+          <span class="more_file">+</span>
+        </div>
+      </div>
+      <div class="form_line" ng-show="send_face">
+        发送表情
+      </div>
+      
+      <div style="clear:both"></div>
+    </div>    
+  </form>	
+</div>
+<style type="text/css">
+.new_post_container {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.new_post_textarea {
+	margin-top: 8px;
+	padding: 8px;
+	height: 160px;
+	border-radius: 5px;
+	border: 1px solid rgb(200, 200, 200);
+	font-size: 14px;
+	color: rgb(96, 96, 96);
+	resize: none;
+  width: 94%;
+}
+.upload-button {
+  border: 1px solid rgb(215, 222, 213);
+  width: 40px;
+  padding: 10px;
+  height: 40px;
+  color: rgb(216, 208, 173);
+  text-align: center;
+  display: inline-block;
+}
+.more_file {
+	text-align: center;
+	line-height: 40px;
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+}
+.uploaded_image {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+.new_post_tap_img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.post_cancel_button {
+  float: right;
+  margin-right: 8px;
+}
+.post_submit_button {
+  float: right;
+
+}
+</style>

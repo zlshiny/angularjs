@@ -1,0 +1,28 @@
+<style type="text/css">
+	.icon_title{
+		padding:5px 0px;
+		text-indent: 15px;
+		margin-top:15px;
+		margin-bottom:10px;
+		background-color:#EDEDED;
+		font-size:14px;
+		color:#666666;
+		clear:both;
+		float:left;
+		width:100%;
+	}
+	#icons{
+		clear:both;
+	}
+</style>
+<div class="tag_wrap" ng-repeat="tag_content in tag">
+	<div class="icon_title" >
+		{{tag_content.category_name}}
+	</div>
+	<div id="icons">
+	  <a href="#/tour/tag_index/{{tag_info.tag_id}}/1/all" ng-repeat="tag_info in tag_content.tag_list" tag-id = "{{tag_info.tag_id}}">
+	    <img src="{{tag_info.icon_url}}">
+	    {{tag_info.tag_name}}
+	  </a>
+	</div>
+</div>

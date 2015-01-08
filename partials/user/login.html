@@ -1,0 +1,44 @@
+<div class="">
+  <div class="tap_container">
+    <div linkable href="#/user/login" class="usercenter_tap tap_active">登录</div>
+    <div linkable href="#/user/register" class="usercenter_tap">注册</div>
+    <div style="clear:both"></div>
+  </div>
+  <form name="loginForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <div class="form_left">
+          <label for="login_username">用户名：</label>
+        </div>
+        <input class="input_text" id="login_username" ng-model="user.username" type="text" placeholder="请输入手机号、邮箱">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="login_password">密码：</label>
+        </div>
+        <input class="input_text" id="login_password" ng-model="user.password" type="password" placeholder="6-18位(数字、字母、下划线)">
+      </div>
+      <button class="btn btn-login" type="submit">登录</button>      
+      <p class="forget"><a href="#/user/forget">忘记密码?</a></p>
+      <div style="clear:both"></div>
+      <!--
+      <div class="other_platform_container">
+        <h3 class="other_platform">第三方账号登录</h3>
+        <hr>
+        <a href="">
+          <img src="/images/wap/qqdenglu@2x.png">
+        </a>
+        <a href="">
+          <img src="/images/wap/xinlangdenglu@2x.png" />
+        </a>
+        <a href="">
+          <img src="/images/wap/doubandenglu@2x.png" />
+        </a> 
+        <a href="">
+          <img src="/images/wap/renrendenglu@2x.png" />
+        </a>
+      </div>
+      -->
+    </div>    
+  </form>
+</div>

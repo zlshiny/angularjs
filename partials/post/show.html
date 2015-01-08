@@ -1,0 +1,200 @@
+<!-- 图文动态 -->
+<div class="post_container" ng-if="post.post_type==1||post.post_type==2">
+  <div class="post_left">
+    <user-avatar lazy-img linkable ng-href="#/user/show/{{ post.user.user_id }}" lazy-src="{{post.user.user_small_picture}}"></user-avatar>
+  </div>
+  <div linkable href="#/post/show/{{ post.post_id }}" class="post_right">
+    <h3 class="user_nickname">{{post.user.user_nickname}}</h3>
+    <div class="post_content">
+      <h3 class="post_text_content" ng-bind-html="post.post_content | face"></h3>
+      <div class="post_multi_media">
+        <img post-img lazy-img ng-src="" ng-repeat="file in post.files" lazy-src="{{file.thumb}}">
+        <div style="clear:both;"></div>
+      </div>
+      <div class="post_other_info">
+        <h4 class="post_created">{{post.post_created | friendlyDate}}</h4>
+        <div class="post_comment_count" ng-click="comment_click(post)"><img ng-src="/images/wap/pinglun@2x.png">&nbsp;({{post.comment_num}})</div>
+        <div class="post_like_count" ng-click="like(post)"><img ng-src="{{post.is_like ? '/images/wap/dianzan1@2x.png' : '/images/wap/dianzan2@2x.png'}}">&nbsp;({{post.like_num}})</div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+<h3 class="comments_title">评论</h3>
+
+<div class="all_comments" infinite-scroll='comment.nextPage()' infinite-scroll-disabled='comment.loading' infinite-scroll-distance='1'>
+  <div id="commnet_473" class="a_comment" ng-repeat="comment in comment.items">
+    <user-avatar lazy-img linkable avartar-width="40" avartar-height="40" ng-href="#/user/show/{{ comment.comment_user.user_id }}" lazy-src="{{comment.comment_user.user_small_picture}}"></user-avatar>
+    <div class="comment_right" comment-width-fix>
+      <a ng-href="#/user/show/{{ comment.comment_user.user_id }}" class="user_nickname">{{comment.comment_user.user_nickname}}</a>
+      <p class="comment_created">{{comment.comment_created | friendlyDate}}</p>
+      <div style="clear:both;"></div>
+      <div class="comment_bottom">
+        <p class="left_fix"></p>
+        <a ng-click="reply(comment)"><div class="comment_content" ng-bind-html="comment.reply_user ? '回复&nbsp;'+comment.reply_user.user_nickname+'：'+comment.comment_content : comment.comment_content | face"></div></a>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+<div ng-if="comment.complete" class="no_comment">评论已全部加载</div>
+<!-- 评论框 -->
+<div class="new_comment_container">
+  <form name="newPostForm" ng-submit="form_submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <textarea ng-model="comment.comment_content" class="new_comment_textarea" placeholder="这一刻的心情"></textarea>
+      </div>
+      <div class="form_line">
+        <button class="post_submit_button btn">提交</button>  
+        <button class="post_cancel_button btn btn-disable" type="button" ng-click="form_cancel()">取消</button>  
+      </div>
+      <div style="clear:both"></div>
+    </div>    
+  </form> 
+</div>
+<div class="page_cover" style="display: none;">&nbsp;</div>
+<style type="text/css">
+.post_text_content {
+  padding-top: 16px;
+}
+/*评论的样式*/
+.comments_title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666666;
+  margin-left: 8px;
+}
+.all_comments {
+  width: 100%;
+}
+.a_comment {
+  padding: 8px;
+  /*margin-bottom: 10px;*/
+}
+.comment_avatar {
+  width: 40px;
+  height: 40px;
+  overflow: hidden; 
+  border-radius: 5px;
+  float: left;
+  
+}
+.user_avatar {
+  max-width: none !important;
+  max-height: none !important;
+}
+.comment_right {
+  float: left;
+  margin-left: 8px;
+  width: 256px;
+}
+.user_nickname {
+  float: left;
+  color: #666666;
+}
+.comment_created {
+  float: right;
+  color: #CCCCCC;
+  font-size: 12px;
+  /*margin-right: 8px;*/
+}
+.left_fix {
+  float: left;
+  /*线上奶酪时间详情页面的样式*/
+  background:url(/images/wap/xohorn.png) no-repeat;
+  /*webapp 活动详情页面的样式，打包到本地*/
+  /*background:url(images/xohorn.png) no-repeat;*/
+  width: 7px;
+  margin-top: 2px;
+  height: 22px;
+}
+.comment_content {
+  color: #000000;
+  margin-top: 8px;
+  padding: 8px 5px;
+  border: 1px solid #DCDDD9;
+  border-radius: 5px;
+  background-color: #F0F0F0;
+  margin-left: 6px;
+}
+.faceimg {
+  width: 18px;
+  margin-right: 2px;
+}
+
+.new_comment_container {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding-bottom: 8px;
+  display: none;
+  background: #FFFFFF;
+}
+.new_comment_container>form {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.new_comment_textarea {
+  margin-top: 8px;
+  padding: 8px;
+  height: 70px;
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+  font-size: 14px;
+  color: rgb(96, 96, 96);
+  resize: none;
+  width: 94%;
+}
+.upload-button {
+  border: 1px solid rgb(215, 222, 213);
+  width: 40px;
+  padding: 10px;
+  height: 40px;
+  color: rgb(216, 208, 173);
+  text-align: center;
+  display: inline-block;
+}
+.more_file {
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.uploaded_image {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+.new_post_tap_img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.post_cancel_button {
+  float: right;
+  margin-right: 8px;
+}
+.post_submit_button {
+  float: right;
+
+}
+.page_cover {
+  position: fixed;
+  background: none repeat scroll 0 0 #333333;
+  float: left;
+  height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+</style>

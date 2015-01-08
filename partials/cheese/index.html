@@ -1,0 +1,89 @@
+<div class="rainbow">
+    <img class="ball" cheese-category cheesetype="constellation" href="#/cheese/index/constellation" style="width:42px;top:6%;left:8%;" src="/images/wap/xingzuo@2x.png" touch-src="/images/wap/xingzuo2@2x.png">
+    <img class="ball" cheese-category cheesetype="event" href="#/cheese/index/event" style="width:38px;top:14%;left:29%;" src="/images/wap/huodong@2x.png" touch-src="/images/wap/huodong2@2x.png">
+    <img class="ball" cheese-category cheesetype="strategy" href="#/cheese/index/strategy" style="width:64px;top:8%;left:49%;" src="/images/wap/lvyougonglv@2x.png" touch-src="/images/wap/lvyougonglv2@2x.png">
+    <img class="ball" cheese-category cheesetype="travel_notes" href="#/cheese/index/travel_notes" style="width:52px;top:3%;left:81%;" src="/images/wap/youji@2x.png" touch-src="/images/wap/youji2@2x.png">
+
+    <img class="ball" cheese-category cheesetype="exam" href="#/cheese/index/exam" style="width:54px;top:48%;left:2%;" src="/images/wap/xiaoceshi@2x.png" touch-src="/images/wap/xiaoceshi2@2x.png">
+    <img class="ball" cheese-category cheesetype="love_lesssons" href="#/cheese/index/love_lesssons" style="width:62px;top:62%;left:21%;" src="/images/wap/lianaidafa@2x.png" touch-src="/images/wap/lianaidafa2@2x.png">
+    <img class="ball" cheese-category cheesetype="milk" href="#/cheese/index/milk" style="width:48px;top:51%;left:42%;" src="/images/wap/yingyangnaipian@2x.png" touch-src="/images/wap/yingyangnaipian2@2x.png">
+    <img class="ball" cheese-category cheesetype="hot_members" href="#/cheese/index/hot_members" style="width:55px;top:63%;left:59%;" src="/images/wap/remennaifen@2x.png" touch-src="/images/wap/remennaifen2@2x.png">
+    <img class="ball" cheese-category cheesetype="charity" href="#/cheese/index/charity" style="width:55px;top:39%;left:78%;" src="/images/wap/gongyi@2x.png" touch-src="/images/wap/gongyi2@2x.png">
+</div>
+<div style="border-bottom: 1px solid #CDCDCD; margin-top:5px;margin-bottom:5px;"></div>
+<div infinite-scroll='cheese.nextPage()' infinite-scroll-disabled='cheese.loading' infinite-scroll-distance='1'>
+  <div scroll-bottom-load class="cheese" ng-repeat="c in cheese.items">
+    <a class="cheese_container" ng-href="#/cheese/show/{{c.cheese_id}}">
+      <div class="cheese_cover">
+        <img class="lazyload" src="/images/wap/tour_loading.jpg" ng-src="{{ c.cheese_cover }}" alt="" />  
+      </div>
+      <div class="cheese_info">
+        <h4 class="cheese_title">{{c.cheese_title | limitTo:30}}</h4>
+        <span class="brief_container">
+          <h5 class="brief">&nbsp;&nbsp;&nbsp;&nbsp;{{c.cheese_brief | limitTo:30}}</h5>
+        </span>
+      </div>
+      <div style="clear: both;"></div>
+    </a>
+  </div>
+</div>
+<!-- $this->renderPartial('//layouts/page', array('page' => $page, 'total'=>$total)); -->
+
+<style type="text/css" media="all">
+.rainbow {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  height:165px;
+}
+.rainbow img{position: absolute;}
+.cheese_container {
+  border-bottom: 1px solid #CDCDCD;
+}
+.cheese_info {
+  padding-right: 6px;
+  margin-left: 140px;
+}
+.cheese_title {
+  color: #333333;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.tour_price {
+  color: #FF8000;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.cheese {
+  /*margin-top: 20px;*/
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #CDCDCD;
+}
+.brief {
+  float: left;
+  color: #989698;
+}
+.brief_container {
+  width: 50%;
+}
+.quota {
+  width: 50%;
+  color: #989698;
+}
+.cheese_cover {
+  float: left;
+  margin-left: 6px;
+}
+.cheese_cover img {
+  width: 100%;
+  width: 124px;
+  /*height: 78px;*/
+  padding: 1px;
+  border: 1px #DBE5E7 solid;
+  
+}
+.quota_num {
+  float: right;
+}
+</style>

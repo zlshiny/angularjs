@@ -1,0 +1,45 @@
+<div class="">
+  <div class="tap_container">
+    <div linkable href="#/user/login" class="usercenter_tap">登录</div>
+    <div linkable href="#/user/register" class="usercenter_tap tap_active">注册</div>
+    <div style="clear:both"></div>
+  </div>
+  <form name="registerForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <div class="form_left">
+          <label for="register_username">手机号：</label>
+        </div>
+        <input class="input_text" id="register_username" ng-model="user.mobile" type="tel" placeholder="请输入手机号">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="register_verify_code">验证码：</label>
+        </div>
+        <input class="input_text" id="register_verify_code" ng-model="user.verify_code" type="tel" placeholder="">
+        <button type="button" class="btn get_verify_code" ng-click="get_verifiy_code()">获取</button>
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="register_nickname">昵称：</label>
+        </div>
+        <input class="input_text" id="register_nickname" ng-model="user.nickname" type="text" placeholder="起个萌萌哒名字~">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="register_password">密码：</label>
+        </div>
+        <input class="input_text" id="register_password" ng-model="user.password" type="password" placeholder="6-18位(数字、字母、下划线)">
+      </div>
+      <button ng-click="login()" class="btn btn-register" type="submit">注册</button>      
+      <div style="clear:both"></div>
+    </div>    
+  </form>
+</div>
+
+
+
+
+
+
+

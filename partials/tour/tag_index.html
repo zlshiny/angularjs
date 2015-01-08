@@ -1,0 +1,184 @@
+<style type="text/css" media="all">
+.tour_title{
+  color:#666666;
+  padding-top:10px;
+  font-size:14px;
+  font-weight: bolder;
+  text-indent: 10px;
+  clear:both;
+}
+.tour_type {
+  -webkit-box-flex: 1;
+  border-left: 1px solid #CCC;
+  width: 100%;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #4C4C4C;
+}
+.tour_type>span {
+  display: inline-block;
+  padding-left: 10px;
+  /*text-overflow: ellipsis;*/
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 80%;
+}
+.tour_info {
+  margin-left: 140px;
+}
+.tour_name {
+  font-size: 14px;
+  color: #606060;
+  font-weight: bolder;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+.tour_price {
+  font-size: 17px;
+  color: #FF7F00;
+  overflow: hidden;
+  margin-bottom: 8px;
+  font-size:17px;
+}
+.tours {
+  /*margin-top: 20px;*/
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #EFEFEF;
+}
+.start_time {
+  background: url(/images/wap/time_icon.png) left center no-repeat;
+  -webkit-background-size: 14px 14px;
+  padding-left: 20px;
+  font-size: 12px;
+  color: #999999;
+  height:14px;
+  line-height:14px;
+}
+.start_time span{
+  float:right;
+  margin-right:10px;
+  background:url(/images/wap/z.png) left center no-repeat;
+  background-size:12px 10px;
+  display:block;
+  height:12px;
+  padding-left:15px;
+}
+.schedule{
+  position:relative;
+}
+.quota {
+  width: 50%;
+  color: #989698;
+}
+.tour_copy {
+  float: left;
+  margin-left: 6px;
+}
+.tour_copy img {
+  width:122px;
+  height:74px;
+  border-radius: 5px;
+  
+}
+.quota_num {
+  float: right;
+  margin-right: 6px;
+}
+.tag_select{
+	display:-webkit-box;
+}
+.tag_select div{
+	-webkit-box-flex:1;
+	border-bottom:1px solid #EEEEEE;
+}
+.tag_select div>select{
+	border:none;
+	padding:0;
+	margin:0;	
+	width:100%;
+	height:45px;
+	text-indent: 20px;
+	outline: none;
+}
+
+</style>
+<script type="text/javascript">
+	// $('.tag_select').find('select').on('change',function(){
+		
+	// })
+</script>
+<div class="tag_select">
+	<input class="city" type="hidden" value="{{ tag_index.city_id }}"/>
+	<input class="tag" type="hidden" value="{{ tag_index.tag_id }}"/>
+	<input class="period" type="hidden" value="{{ tag_index.period }}"/>
+	<div>
+		<select select-check type="1">
+	    	<option value="{{ tag_index.city_id }}" select="select">{{city[tag_index.city_id]}}</option>
+	    	<option ng-repeat = "city in city" value="{{$index+1}}">{{city}}</option>
+	    </select>
+    </div>
+    <div>
+	    <select select-check type="2">
+	    	<option value="{{ tag_index.tag_id }}">{{tags[tag_index.tag_id]}}</option>
+	    	<option value="1">徒步</option>
+	    	<option value="2">登山</option>
+	    	<option value="3">骑马</option>
+	    	<option value="4">摄影</option>
+	    	<option value="5">滑雪</option>
+	    	<option value="6">骑行</option>
+	    	<option value="7">攀岩</option>
+	    	<option value="8">垂钓</option>
+	    	<option value="9">露营</option>
+	    	<option value="25">海边</option>
+	    	<option value="26">草原</option>
+	    	<option value="10">单身</option>
+	    	<option value="11">亲子</option>
+	    	<option value="12">情侣</option>
+	    	<option value="13">戏剧</option>
+	    	<option value="14">音乐</option>
+	    	<option value="15">电影</option>
+	    	<option value="16">讲座</option>
+	    	<option value="17">展览</option>
+	    	<option value="18">桌游</option>
+	    	<option value="19">跑步</option>
+	    	<option value="20">篮球</option>
+	    	<option value="21">游泳</option>
+	    	<option value="22">徒步</option>
+	    	<option value="23">乒乓球</option>
+	    	<option value="24">台球</option>
+	    	<option value="25">公益</option>
+	    </select>
+    </div>
+    <div>
+	    <select select-check type="3">
+	    	<option value="{{ tag_index.period }}">{{period[tag_index.period]}}</option>
+	    	<option value="all">任何时间</option>
+	    	<option value="today">今天</option>
+	    	<option value="tomorrow">明天</option>
+	    	<option value="this_weekend">本周末</option>
+	    </select>
+    </div>
+</div>
+<div infinite-scroll='tag_index.load()' infinite-scroll-disabled='tag_index.loading' infinite-scroll-distance='1'>
+  <div scroll-bottom-load class="tours" ng-repeat="tour in tag_index.items">
+  <a class="tour_container" href="#/tour/show/{{ tour.tour_id }}">
+    <div class="tour_copy">
+      <img class="lazyload" src="/images/wap/tour_loading.jpg" ng-src="{{ tour.tour_cover_url }}" alt="" />  
+    </div>
+    <div class="tour_info">
+      <h4 class="tour_name">{{ tour.tour_name }}</h4>
+      <h3 class="tour_price">￥{{ tour.tour_price }}</h3>
+      <span class="schedule">
+        <h5 class="start_time">{{ tour.tour_period }}<span>3000</span></h5>
+        
+      </span>
+    </div>
+    <div style="clear: both;"></div>
+  </a>
+  </div>
+</div>
+

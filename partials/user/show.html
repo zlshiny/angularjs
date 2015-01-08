@@ -1,0 +1,111 @@
+<style type="text/css">
+	#main_view{
+		background-color:#eeeeee;
+		font-size:14px;
+	}
+	section{
+		padding:24px 0px;
+		width:100%;
+		background-color:#39383d;
+		text-align: center;
+	}
+	section>img{
+		width:78px;
+		height:78px;
+		border-radius: 78px;
+		-webkit-border-radius: 78px;
+		border:3px solid #fff;
+	}
+	section>p{
+		font-size:14px;
+		color:#fff;
+		padding:7px;
+	}
+	section>span>img{
+		height: 12px;
+    margin-right: 5px;
+    vertical-align: text-top;
+    width: 12px;
+	}
+	section>span:nth-of-type(1){
+		padding:1px 5px;
+		color:#fff;
+		font-size:12px;
+		border-radius: 3px;
+		margin-right:7px;
+	}
+	section>span:nth-of-type(2){
+		font-size:12px;
+		color:rgb(152,152,152);
+	}
+	nav{
+		display:-webkit-box;
+		background-color:#f8f8f8;
+		
+	}
+	nav>a{
+		display:block;
+		-webkit-box-flex:1;
+		text-align: center;
+		padding:15px 0px;
+		position:relative;
+		color:#989898;
+	}
+	nav>a>div:after{
+		content: "";
+		display: block;
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+		width: 0;
+		border-width: 0 10px 10px;
+		border-style: solid;
+		border-color: #eeeeee transparent;
+	}
+	nav>a:hover{
+		color:#777777;
+	}
+	#user_profile{
+		margin:0px 37px;
+		color:#989898;
+	}
+	#user_profile>p{
+		padding:20px 0px;
+		border-bottom: 1px solid #f5f5f5;
+	}
+	#user_profile>p:last-child{
+		margin-bottom:30px;
+	}
+	#user_profile>p>span{
+		color:#616161;
+		margin-left:30px;
+	}
+	.post_container {
+		border-bottom: 1px solid rgb(246, 246, 246);
+		padding-bottom: 14px;
+	}
+</style>
+<section>
+	<img ng-src="{{user_info.user_small_picture}}"/>
+
+	<p>{{user_info.user_nickname}}</p>
+	<span class="gender_female" ng-if="user_info.user_gender==0"><img src="/images/wap/nv@2x.png">{{user_info.user_age}}</span>
+	<span class="gender_male" ng-if="user_info.user_gender!=0"><img src="/images/wap/nan@2x.png">{{user_info.user_age}}</span>
+	<span>{{user_info.user_constellation}}</span>
+</section>
+<nav>
+	<a ng-click="show_profile=true" ng-show="show_profile">资料<div></div></a>
+	<a ng-click="show_profile=false" ng-show="show_profile">动态</a>
+	<a ng-click="show_profile=true" ng-show="!show_profile">资料</a>
+	<a ng-click="show_profile=false" ng-show="!show_profile">动态<div></div></a>
+</nav>
+<div ng-show="show_profile" id="user_profile">
+	<p>生日：<span>{{user_info.user_birthday}}</span></p>
+	<p>地区：<span>{{user_info.user_location}}</span></p>
+	<p>签名：<span>{{user_info.user_introduction}}</span></p>
+</div>
+<div ng-show="!show_profile" ng-include src="'/angularjs/partials/post/index.html'"></div>
+
+

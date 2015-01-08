@@ -1,0 +1,28 @@
+<style type="text/css">
+	section{
+		border-top:none;
+		border-bottom:2px dotted #F0E6D5;
+		background-color:#F8F8F8;
+		padding:7px 5px;
+		margin-top:0px;
+	}
+	a:last-of-type>section{
+		margin-bottom:30px;
+	}
+</style>
+<div infinite-scroll='orders.load()' infinite-scroll-disabled='orders.loading' infinite-scroll-distance='1' >
+	<a href="#/order/confirm/{{post.order.order_id}}" ng-repeat="post in orders.items">
+		<section   id="os_title">
+			<div>
+				<img src="{{post.tour.tour_cover_url}}"/>
+				<span class="yfk"></span>
+				<span class="wfk" ng-if="post.order.order_can_pay"></span>
+			</div>
+		    <div>
+		        <div>{{post.tour.tour_name}}</div>
+				<div>￥{{post.tour.tour_price}}</div>	
+				<div>{{post.tour.tour_period}}</div>			
+			</div>
+		</section>
+	</a>
+</div>

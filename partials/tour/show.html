@@ -1,0 +1,198 @@
+<div>
+  <h2 class="info_title title">{{ tour.tour_name }}</h2>
+  <h4 class="info_title_sub title">({{ tour.tour_location }})</h4>
+  <div class="clear"></div>
+</div>
+<div id="media" class="media">
+  <img lazy-img ng-src="{{ tour.tour_cover_url }}" alt="" />
+</div>
+<div class="tour_info">
+  <div class="left">
+    <h3 class="start_time">{{ tour.tour_period }}</h3>
+    <h3>{{ tour.tour_join_deadline }}</h3>
+  </div>
+  <div class="right">
+    <h1>{{ tour.tour_price }}元</h1>
+    <!-- <h3>{{ tour.tour_member_count }}</h3> -->
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="hint">
+  <div class="schedule">
+    <h3 class="block_title">行程安排</h3>
+    <div class="schedule_content" ng-bind-html="tour_app_schedule()">
+      
+    </div>
+  </div>
+  <div class="expense">
+    <h3 class="block_title">费用说明</h3>
+    <div class="expense_content" ng-bind-html="tour_app_expense()">
+    </div>
+  </div>
+</div>
+
+<div id="share_desc" style="display:none">{{ tour.weixin_intro }}</div>
+<div class="bottom_button_container">
+  <!-- disabled="{{ tour.tour_can_join }}" -->
+  <button ng-click="new_order()" {{ tour.tour_can_join ? '' : 'disabled="disabled"' }} class="tour_join btn vertical_middle {{ tour.tour_can_join ? '' : 'btn-disable' }}">{{ tour.button_title }}</button>
+
+  <!-- todo 判断如果不是微信则alert弹出提示框 -->
+  <button linkable href="tel:010-56138617" class="consult btn vertical_middle">咨询</button>
+</div>
+
+<style type="text/css" media="all">
+table {
+  width: 90% !important;
+}
+.schedule_content, .expense_content, .comment_content, .old_albums, .map {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.comment_user span {
+  color: #8E8E8E;
+  margin-right: 15px;
+  font-size: 12px;
+}
+.comment_text {
+  margin-top: 10px;
+}
+.comments {
+  padding-bottom: 20px;
+}
+.comment_content {
+
+}
+.schedule {
+  margin-bottom: 20px;
+}
+.expense {
+  margin-bottom: 20px;
+
+}
+.schedule, .expense, .comments {
+  border: 1px solid #C8C8C8;
+}
+.schedule .block_title, .expense .block_title, .comments .block_title {
+  border-bottom: 1px solid #C8C8C8;
+}
+.schedule ul, .expense ul {
+  padding-left: 0px;
+  margin-left: 10px;
+
+  margin-left: 10px;
+}
+.tour_members, .comments {
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+.block_title {
+  padding-left: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.tour_members ul {
+  padding-left: 5px;
+  margin-top: 10px;
+  
+}
+.tour_members ul li {
+  float: left;
+  margin-bottom: 5px;
+
+}
+.user_picture {
+  width: 57px;
+  margin: 0px 5px;
+}
+.tour_members {
+  border: 1px solid #C8C8C8;
+  background: none repeat scroll 0 0 #F9F9F9;
+  margin-bottom: 20px;
+
+}
+.hint {
+  margin-left: 10px;
+  background: none repeat scroll 0 0 #F9F9F9;
+  background: none repeat scroll 0 0 #F9F9F9;
+  margin-right: 10px;
+}
+ul, li {
+  list-style: none;
+}
+.media {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+.media img {
+  width: 90%;
+}
+.bottom_button_container {
+  position: fixed;
+  bottom: 0px;
+  float: left;
+  background: none repeat scroll 0 0 #f2f0e6;
+  height: 50px;
+  width: 100%;
+}
+.bottom_button {
+}
+.tour_price {
+  color: #FD6B07;
+  font-size: 16px;
+  float: left;
+  margin-left: 20px;
+}
+.content_container .album {
+  font-size: 14px;
+  float: left;
+  margin-left: 20px;
+}
+.cant_join {
+  color: #666666;
+}
+.tour_join, .consult {
+  font-size: 14px;
+  float: right;
+  margin-right: 16px;
+  margin-top: 10px;
+}
+.info_title {
+  margin-left: 10px;
+  margin-bottom: 7px;
+  float: left;
+}
+.info_title_sub {
+  float: left;
+  margin-left: 5px;
+  line-height: 18px;
+}
+.tour_info {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.left {
+  float: left;
+  font-size: 16px;
+  padding-left: 10px;
+}
+.right {
+  float: right;
+  text-align: center;
+  padding-right: 10px;
+}
+.right h1 {
+  margin-bottom: 10px;
+  color: #FF0000;
+}
+.start_time {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+</style>

@@ -1,0 +1,27 @@
+<div class="forget_form_container">
+  <form name="forgetForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <div class="form_left">
+          <label for="forget_username">手机号：</label>
+        </div>
+        <input class="input_text" id="forget_username" ng-model="user.mobile" type="tel" placeholder="请输入手机号">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="forget_verify_code">验证码：</label>
+        </div>
+        <input class="input_text" id="forget_verify_code" ng-model="user.verify_code" type="tel" placeholder="">
+        <button class="btn get_verify_code">获取</button>
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="forget_password">新密码：</label>
+        </div>
+        <input class="input_text" id="forget_password" ng-model="user.password" type="password" placeholder="6-18位(数字、字母、下划线)">
+      </div>
+      <button class="btn btn-forget" type="submit">提交</button>      
+      <div style="clear:both"></div>
+    </div>    
+  </form>
+</div>

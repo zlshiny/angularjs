@@ -1,0 +1,132 @@
+<h3 class="exam_title">测试你出轨的概率有多大！</h3>
+<!-- 测试中 -->
+
+<p>{{title}}</p>
+<div class="test_container" ng-if="!done">
+  <a ng-href="#/exam/step/{{option.jump_to}}" ng-repeat="option in options">
+    <button style="width:{{button_width}}px" class="btn option">{{option.content}}</button>
+  </a><br>
+</div>
+<div class="result_container" ng-if="done">
+  <div ng-if="step=='A'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 出轨是家常便饭</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/jianyi.jpg" class="result_img" style="width: 1420px;">
+    <p>&nbsp;&nbsp;你是个容易见异思迁的人，花心或移情别恋对你乃是天经地义的事，而且也不会有什么罪恶感。就算有了正式的爱人，还会跟别人来往，你还乐此不疲。因为你的本性喜欢冒险，所以才会喜欢这种刺激的感觉。</p>
+  </div>
+  <div ng-if="step=='B'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 你很容易被诱惑</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/beiyouhuo.jpg" class="result_img" style="width: 1420px;">
+    <p>&nbsp;&nbsp;你的花心程度较高，你意志不够坚定，如果对方热情的邀请你，你一定会陷下去。不过，你会觉得有罪恶感，所以不会主动去勾引别人。你的理由就是“不好意思拒绝他”。</p>
+  </div>
+  <div ng-if="step=='C'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 你没勇气这么做</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/meiyongqi.jpg" class="result_img" style="width: 1420px;">
+    <p>&nbsp;&nbsp;你很想移情别恋，但是没有勇气这么做。这并不是你的罪恶感在作祟，而是你太胆小没有勇气这么做，只好将强烈的欲望压抑下来，所以老是听到你在说：“我才不会花心呢！”其实你还是有点心不甘情不愿的。</p>
+  </div>
+  <div ng-if="step=='D'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 错将友情当爱情</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/youqing.jpg" class="result_img" style="width: 1420px;">
+    <p>&nbsp;&nbsp;你的花心程度很低，不过有时也会有移情别恋的念头，但是你并不想背上背叛情人的罪名，所以不会这么做。但是你很容易错将友情当爱情，容易因关心而发展出爱情，所以你要事实理清感觉，别把友情与爱情混淆了。</p>
+  </div>
+  <div ng-if="step=='E'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 怕麻烦所以不会花心</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/pamafan.jpg" class="result_img" style="width: 1420px;">
+    <p>&nbsp;&nbsp;你的花心程度极低，只要有了情人，就不会和别的异性交往。这并不是因为你是个专情的人，而是因为你很怕麻烦。万一偷偷跟别人交往，东窗事发了还得找一大堆理由解释会很累，所以怕麻烦的你绝对不会自找麻烦。</p>
+  </div>
+  <div ng-if="step=='F'">
+    <p>我的测试结果是：<span class="result_point">{{point}}</span> % 只对自己的情人感兴趣</p>
+    <img style="width:{{button_width}}px" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/zhuanyi.jpg" class="result_img">
+    <p>&nbsp;&nbsp;你的花心程度等于零，简直可以说是世上最专情的人。你的眼里只有情人一个，根本容不下其他的异性。就算有人想追你，你都可以视若无睹不为所动。不过你也要求情人和你一样的忠心，万一他变心，你绝对不会放过他。</p>
+  </div>
+
+  <button class="btn share" style="width:{{button_width}}px" ng-click="weixin_share()">且测且分享</button>
+  <a href="#/exam/index"><button class="btn again" style="width:{{button_width}}px">再测一次</button></a>
+
+  <!-- <a href="http://mp.weixin.qq.com/s?__biz=MjM5MTM5OTgzMg==&mid=203474300&idx=1&sn=9ee9a4d6bdfe131646c2629a10cedf27#rd"> -->
+  <a href="http://mp.weixin.qq.com/s?__biz=MjM5MTM5OTgzMg==&amp;mid=200440458&amp;idx=1&amp;sn=9ef35f717e56447a1f73778e3e013864#rd">
+    <button class="btn" style="width:{{button_width}}px">关注奶酪汇，和小伙伴儿，一起粗去玩~
+</button>
+
+  </a>
+</div>
+<div class="page_cover" ng-click="hide_cover()">&nbsp;</div>
+<div id="top_image">
+  <img alt="" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/guide_arrow.png" id="guide_arrow">
+  <div style="clear:both"></div>
+  <h3 class="guide_text">点击右上角分享按钮，分享到朋友圈，跟小伙伴们得瑟一下~</h3>
+</div>
+<style type="text/css">
+.content_container img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+p {
+  margin: 10px 15px;
+}
+.option {
+  margin: 5px 0px;
+
+}
+.result_point {
+  color: #FF0000;
+  font-size: 18px;
+}
+.btn_container {
+  width: 100%;
+  /*margin: 0 15px;*/
+
+  text-align: center;
+}
+.btn {
+  width: 100%;
+  font-size: 14px;   
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.exam_title {
+  font-weight: bold;
+  margin: 10px 5px;
+}
+.again {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#top_image {
+  background: #FFFFF0;
+  border: 1px solid #FED700;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100;
+  position: fixed;
+  right: 2%;
+  top: 2%;
+  color: #545454;
+  width: 60%;
+  display: none;
+}
+#guide_arrow {
+  float: right;
+  width: 50px;
+}
+.page_cover {
+  z-index: 99;
+  float: left;
+  position: fixed;
+  top: 0;
+  display: none;
+  background: #333333;
+  filter:alpha(Opacity=50);
+  -moz-opacity:0.5;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+}
+.guide_text {
+  font-weight: bold;
+  line-height: 18px;
+  font-size: 16px;
+}
+</style>

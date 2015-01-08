@@ -1,0 +1,48 @@
+<style type="text/css">
+	#page{
+		background-color:#fff;
+	}
+	section{
+	  border-top:1px solid #D3D4CE;
+	  border-bottom:1px solid #D3D4CE;
+	  background-color:#F8F8F8;
+	  padding:8px 27px;
+	  margin-top:15px;
+	}
+	section:last-of-type{
+		margin-bottom:30px;
+	}
+	#order_r_icon{
+		background:url(/images/wap/order_right_icon.png) center center no-repeat;
+		display:block;
+		-webkit-background-size:7px 12px;
+		width:45px;
+		height:50px;
+		position:absolute;
+		right:-20px;
+		top:2px;
+	}
+
+</style>
+<section id="order_title">
+	<div>
+		<user-avatar lazy-img id="user_avatar" avartar-width="62" avartar-height="62" lazy-src="{{user_info.user_small_picture}}"></user-avatar>
+	</div>
+    <div>
+        <div>{{user_info.user_nickname}}</div>
+		<div>
+			<span class="gender_female" ng-if="user_info.user_gender==0"><img src="/images/wap/nv@2x.png">{{user_info.user_age}}</span>
+			<span class="gender_male" ng-if="user_info.user_gender!=0"><img src="/images/wap/nan@2x.png">{{user_info.user_age}}</span>
+			<span>{{user_info.user_constellation}}</span>
+		</div>
+		<a id="order_r_icon" href="#/user/update"></a>				
+	</div>
+</section>
+<section id="order_main">
+	<div>账号余额<span>￥{{user_balance.balance}}</span></div>
+	<div>我的订单<a id="order_r_icon" href="#/order/show"></a></div>
+	<div>参团信息<a id="order_r_icon" href="#/order/info"></a></div>
+</section>
+<!-- <section id="order_main">
+	<div>设置<a id="order_r_icon" href="###"></a></div>
+</section> -->

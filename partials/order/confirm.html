@@ -1,0 +1,187 @@
+<style type="text/css">
+	#page{
+		background-color:#fff;
+	}
+	section{
+		border-top: 1px solid #D3D4CE;
+		border-bottom: 1px solid #D3D4CE;
+		background-color: #F8F8F8;
+		padding:7px 5px;
+		margin-top: 15px;
+	}
+	#os_title>div:nth-of-type(2)>div:nth-of-type(4) {
+		background: url(/images/wap/time_icon.png) left center no-repeat;
+		-webkit-background-size: 14px 14px;
+		padding-left: 20px;
+		font-size: 12px;
+		color: #999999;
+		margin-top:2px;
+	}
+	#os_title>div:nth-of-type(2)>div:nth-of-type(3){
+		background:none;
+		font-size:12px;
+		color:#999;
+		padding-left:0px;
+		margin-top:4px;
+	}
+	#os_title>div:nth-of-type(2)>div:nth-of-type(2){
+		margin-top:6px;
+	}
+	#os_title>div:nth-of-type(2){
+		position:relative;
+	}
+	#os_title #order_r_icon{
+		background:url(/images/wap/order_right_icon.png) center center no-repeat;
+		display:block;
+		-webkit-background-size:7px 12px;
+		width:45px;
+		height:50px;
+		position:absolute;
+		right:-10px;
+		top:12px;
+	}
+	p{
+		padding: 17px 0px;
+		font-size: 14px;
+		color: #606060;
+		position: relative;
+		width:100%;
+		text-indent: 10px;
+	}
+	p>a{
+		color:#006CD8;
+		font-weight: bolder;
+	}
+	#order_main{
+		margin-top:0px;
+	}
+/*	#order_main:last-of-type{
+		margin-bottom:30px;
+	}*/
+	#order_main>div>span{
+		font-size:14px;
+		color:#5F5F5F;
+	}
+	#order_main .coo{
+		color: #FF7F00!important;
+	}
+	#order_main>div>img{
+		width:65px;
+	}
+	.zf>div{
+		padding:5px 0px!important;
+		display:-webkit-box;
+	}
+	.zf>div>div{
+		-webkit-box-flex:1;
+		position:relative;
+	}
+	.zf>div>div>p:nth-of-type(1){
+		font-size:14px;
+		color: #5F5F5F;
+		padding:0px 0px;
+		font-weight: bolder;
+		padding-top:5px;
+	}
+	.zf>div>div>p:nth-of-type(2){
+		font-size:12px;
+		color:#989898;
+		padding:0px 0px;
+	}
+	.zf>div>div>div{
+		background:url(/images/wap/weixuanze@2x.png) no-repeat;
+		background-size:22px 22px;
+		position:absolute;
+		right:10px;
+		width:22px;
+		height:22px;
+		top:10px;
+	}
+	.zf>div>div>div>img{
+		width:20px;
+		height:20px;
+		position:absolute;
+		right:1px;
+		top:1px;
+	}
+	#btns{
+		margin:0px 10px;
+		display:-webkit-box;
+		margin-bottom:30px;
+	}
+	#btns .btn{
+		-webkit-box-flex:1;
+		text-align: center;
+		line-height:30px;
+	}
+	#btns .btn:nth-of-type(2){
+		margin-left:10px;
+	}
+</style>
+<a href="###" >
+	<section id="os_title">
+		<div>
+			<img src="{{order_info.tour_detail.tour_weixin_pic}}"/>
+		</div>
+	    <div>
+	        <div>{{order_info.tour_detail.tour_name}}</div>
+			<div>￥{{order_info.tour_detail.tour_price}}</div>
+			<div>报名截止：{{order_info.tour_detail.tour_join_deadline}}</div>	
+			<div>{{order_info.tour_detail.tour_period}}</div>		
+			<span id="order_r_icon"></span>	
+		</div>
+	</section>
+</a>
+<p>联系信息</p>
+<section id="order_main">
+	<div>姓名<span>{{order_info.user_info.user_realname}}</span></div>
+	<div>性别<span>{{order_info.user_info.user_realgender}}</span></div>
+	<div>手机号<span>{{order_info.user_info.user_realmobile}}</span></div>
+	<div>证件类型<span>{{order_info.user_info.user_id_type}}</span></div>
+	<div>证件号<span>{{order_info.user_info.user_idnum}}</span></div>
+</section>
+<p>订单信息</p>
+<section id="order_main">
+	<div>订单编号<span>{{order_info.order_detail.order_num}}</span></div>
+	<div>订单费用<span>{{order_info.order_detail.order_price}}</span></div>
+	<div>账户余额<span>{{order_info.user_info.user_balance}}</span></div>
+	<div>还需支付<span class="coo">{{order_info.order_detail.order_to_pay}}元</span></div>
+</section>
+<p>选择支付方式</p>
+<section id="order_main" class="zf">
+<!-- 	<div>
+		<img src="/images/wap/zhifubao@2x.png">
+		<div>
+			<p>支付宝客户端支付</p>
+			<p>推荐有支付宝账户的用户使用</p>
+			<div class="zf_check" data="1" charge-click>
+				<img src="/images/wap/xuanze@2x.png">
+			</div>
+		</div>
+	</div> -->
+	<div>
+		<img src="/images/wap/zhifubaowangye@2x.png">
+		<div>
+			<p>支付宝网页支付</p>
+			<p>推荐有支付宝账户的用户使用</p>
+			<div class="zf_check" data="0" charge-click>
+				<img src="/images/wap/xuanze@2x.png">
+			</div>
+		</div>
+	</div>
+<!-- 	<div>
+		<img src="/images/wap/yinlian@2x.png">
+		<div>
+			<p>银联支付</p>
+			<p>支持银行卡和财付通账户使用</p>
+			<div class="zf_check" data="0" charge-click>
+				
+			</div>
+		</div>
+	</div> -->
+</section>
+<p>报名成功则视为同意<a href="###">《奶酪汇报名须知》</a></p>
+<div id="btns">
+	<div class="btn">联系客服</div>
+	<div class="btn" ng-click = "charge_link()">立即支付</div>
+</div>

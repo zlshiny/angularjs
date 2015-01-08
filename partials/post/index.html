@@ -1,0 +1,29 @@
+
+<div infinite-scroll='posts.load()' infinite-scroll-disabled='posts.loading' infinite-scroll-distance='1'>
+  <div ng-repeat="post in posts.items">
+    <!-- 图文动态 -->
+    <div class="post_container" ng-if="post.post_type==1||post.post_type==2">
+      <div class="post_left">
+        <!-- <img class="user_avatar" src="http://oss.aliyuncs.com/photobucket/nlh/2514/2014/e5581551050226248e1a11517d9c4dc81d64119e.jpg" /> -->
+        <user-avatar lazy-img linkable ng-href="#/user/show/{{ post.user.user_id }}" lazy-src="{{post.user.user_small_picture}}"></user-avatar>
+        <!-- <user-avatar linkable href="#/home" src="http://oss.aliyuncs.com/photobucket/nlh/2514/2014/e5581551050226248e1a11517d9c4dc81d64119e.jpg"></user-avatar> -->
+      </div>
+      <div linkable href="#/post/show/{{ post.post_id }}" class="post_right">
+        <h3 class="user_nickname">{{post.user.user_nickname}}</h3>
+        <div class="post_content">
+          <h3 class="post_text_content" ng-bind-html="post.post_content | face"></h3>
+          <div class="post_multi_media">
+            <img post-img lazy-img ng-src="" ng-repeat="file in post.files" lazy-src="{{file.thumb}}">
+            <!-- <img post-img ng-repeat="file in post.files" ng-src="http://oss.aliyuncs.com/photobucket/nlhzz/pics/2014/7e1b877d82fb224f4fa753105d080ae5296b48bf.jpg"> -->
+            <div style="clear:both;"></div>
+          </div>
+          <div class="post_other_info">
+            <h4 class="post_created">{{post.post_created | friendlyDate}}</h4>
+            <div class="post_comment_count"><img ng-src="/images/wap/pinglun@2x.png">&nbsp;({{post.comment_num}})</div>
+            <div class="post_like_count" ng-click="like(post)"><img ng-src="{{post.is_like ? '/images/wap/dianzan1@2x.png' : '/images/wap/dianzan2@2x.png'}}">&nbsp;({{post.like_num}})</div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>

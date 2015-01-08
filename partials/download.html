@@ -1,0 +1,137 @@
+<!-- <img id="logo" src="/images/wap/app_logo.png" alt="" /> -->
+<div id="top_image">
+  <img id="guide_arrow" src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/guide_arrow.png" alt="" />
+  <div style="clear:both"></div>
+  <h4 class="guide_text">点击右上角分享按钮，选择在Safari中打开，即可下载奶酪汇App</h4>
+</div>
+
+<h2 class="slogan">奶酪汇</h2>
+<h2 class="slogan">和小伙伴儿，一起粗去玩~</h2>
+
+<div id="download">
+  <h4 class="download_title">免费下载</h4>
+  <!-- 微信 -->
+  <a ng-if="is_weixin" id="apple_download" ng-click="weixin_download()">
+    <img src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/apple_icon.png" alt="" /><span>App Store下载</span>
+  </a>
+  <a ng-if="!is_weixin" id="apple_download" href="http://itunes.apple.com/cn/app/nai-lao-hui/id795472995?ls=1&mt=8">
+    <img src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/apple_icon.png" alt="" /><span>App Store下载</span>
+  </a>
+  <br />
+  <a id="android_download" href="###">
+    <img src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/android_icon.png" alt="" />
+    <span>吐血开发中！</span>
+  </a>
+</div>
+<br />
+<div id="app_intro">
+  <img src="http://photobucket.oss-cn-hangzhou.aliyuncs.com/wap/app_intro.png" alt="" />
+</div>
+<div class="page_cover" ng-click="hide_cover()">&nbsp;</div>
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.guide_text {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+}
+#content {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.content_container {
+    width: 100%;
+}
+#logo {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.slogan {
+  padding-top: 10px;
+}
+.slogan, .download_title {
+  color: #663300;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.download_title {
+  padding: 10px;
+  margin-left: 5px;
+}
+#top_image {
+  background: #FFFFF0;
+  border: 1px solid #FED700;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100;
+  position: fixed;
+  right: 2%;
+  top: 2%;
+  color: #545454;
+  width: 60%;
+  display: none;
+}
+#guide_arrow {
+  float: right;
+  width: 50px;
+}
+.page_cover {
+  z-index: 99;
+  float: left;
+  position: fixed;
+  top: 0;
+  display: none;
+  background: #333333;
+  filter:alpha(Opacity=50);
+  -moz-opacity:0.5;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+}
+#download {
+  margin: 0 auto;
+  width: 70%;
+}
+#apple_download {
+  background: #FFC500;
+  display: block;
+  height: 56px;
+  text-align: center;
+}
+#android_download {
+  background: #AAAAAA;
+  display: block;
+  height: 56px;
+  text-align: center;
+}
+#apple_download img, #android_download img {
+  width: 40px;
+  vertical-align: middle;
+  margin-top: -8px;
+  margin-right: 10px;
+}
+#apple_download span, #android_download span {
+  margin-top: 8px;
+  line-height: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  display: inline-block;
+  color: #545454;
+}
+#app_intro {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+#app_intro img {
+  width: 100%;
+}
+</style>

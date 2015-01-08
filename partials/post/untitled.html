@@ -1,0 +1,16 @@
+
+<div class="">
+  <form name="newPostForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <textarea class="new_post_textarea" placeholder="这一刻的心情"></textarea>
+      </div>
+      <div class="form_line">
+
+        <input type="file" class="upload-button" onclick="this.value = null" title="select file" data-multiple="true" ng-file-select="onFileSelect($files)" accept="image/*" style="top: 0px; bottom: 0px; left: 0px; right: 0px; width: 100%; opacity: 0; position: absolute;">
+        
+      </div>
+      <div style="clear:both"></div>
+    </div>    
+  </form>
+</div>

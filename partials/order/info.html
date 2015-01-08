@@ -1,0 +1,79 @@
+<style type="text/css">
+.content_container {
+	padding-top: 15px;
+}
+select {
+	border: 1px solid rgb(237, 237, 237);
+	background: #ffffff;
+	height: 33px;
+	padding: 4px 8px;
+	min-width: 50px;
+	-webkit-appearance: none;
+	border-radius: 3px;
+}
+.introduction_textarea {
+	margin-top: 8px;
+	padding: 8px;
+	border-radius: 5px;
+	border: 1px solid rgb(237, 237, 237);
+	font-size: 14px;
+	color: rgb(96, 96, 96);
+	resize: none;
+  width: 60%;
+}
+.upload-button {
+  height: 100px;
+  padding-left: 100px;
+  width: 100px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+</style>
+<div class="">
+  <form name="updateProfileForm" ng-submit="submit()">
+    <div class="form_container">
+      <div class="form_line">
+        <div class="form_left">
+          <label for="update_profile_username">真实姓名：</label>
+        </div>
+        <input class="input_text" id="update_profile_username" ng-model="user.user_realname" type="text">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="update_profile_user_gender">性别：</label>
+        </div>
+        <label ng-click="user.user_realgender=0" ng-class="{select: !user.user_realgender}" class="user_gender">
+					女
+				</label>
+        <label ng-click="user.user_realgender=1" ng-class="{select: user.user_realgender}" class="user_gender">
+					男
+				</label>
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="update_profile_username">手机：</label>
+        </div>
+        <input class="input_text" ng-model="user.user_realmobile" type="tel">
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="update_profile_user_gender">证件类型：</label>
+        </div>
+        <select ng-model="user.user_id_type">
+      		<option value="id_card">身份证</option>
+      		<option value="passport">护照</option>
+      		<option value="officer_card">军官证</option>
+      		<option value="sibling">港澳回乡证或台胞证</option>
+      	</select>
+      </div>
+      <div class="form_line">
+        <div class="form_left">
+          <label for="update_profile_user_gender">证件号：</label>
+        </div>
+        <input class="input_text" ng-model="user.user_idnum" type="tel"/>
+      </div>
+      <button class="btn btn-update-profile" type="submit">修改</button>      
+      <div style="clear:both"></div>
+    </div>    
+  </form>
+</div>
